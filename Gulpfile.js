@@ -9,7 +9,7 @@ var config = {
     bowerDir: './bower_components'
 }
 
-gulp.task('default', ['js', 'images', 'jade', 'sass', 'watch'], function() {});
+gulp.task('default', ['js', 'images', 'audios', 'jade', 'sass', 'watch'], function() {});
 
 gulp.task('js', function() {
     return gulp.src('client/scripts/*.js').pipe(gulp.dest('./public/js'));
@@ -18,6 +18,11 @@ gulp.task('js', function() {
 gulp.task('images', function() {
     return gulp.src('client/images/*.*')
         .pipe(gulp.dest('./public/images'));
+});
+
+gulp.task('audios', function() {
+    return gulp.src('client/audios/*.*')
+        .pipe(gulp.dest('./public/audios'));
 });
 
 gulp.task('jade', function() {
@@ -42,6 +47,8 @@ gulp.task('express', function() {
 
 gulp.task('watch', ['express'], function() {
   livereload.listen();
+  gulp.watch(['client/images/*.*'], ['images']);
+  gulp.watch(['client/audios/*.*'], ['audios']);
   gulp.watch(['client/scripts/*.js'], ['js']);
   gulp.watch(['client/styles/**/*.scss'], ['styles']);
   gulp.watch(['client/**/*.jade'], ['jade']);
