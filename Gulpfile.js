@@ -42,7 +42,7 @@ gulp.task('express', function() {
   var app = express();
   app.use(require('connect-livereload')());
   app.use(express.static(__dirname + '/public'));
-  app.listen(3000);
+  app.listen(5000);
 });
 
 gulp.task('watch', ['express'], function() {

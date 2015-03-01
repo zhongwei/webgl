@@ -9,3 +9,8 @@ a {
   a:hover {
     color: #000;
     text-decoration: underline; }
+
+#container {
+  width: 95%;
+  height: 80%;
+  position: absolute; }
